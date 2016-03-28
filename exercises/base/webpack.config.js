@@ -2,9 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  entry: './base/index.jsx',
+  entry: './index.jsx',
   output: {
-    path: __dirname + '/base/dist',
+    path: __dirname + '/dist',
     publicPath: __dirname + '/dist',
     filename: 'bundle.js'
   },
