@@ -1,12 +1,6 @@
 # React intro by Emblica
 
+* `example_solution` contains an example of the final result of this intro
+* `exercises` contain small exercises that lead towards the final result demonstrated in example_solution
+* `theory` contain our presentation & example snippets on React
 
-## Setup
-
-```
-npm install
-```
-
-
-### base/
-There is your applications skeleton. You will be developing in this directory
