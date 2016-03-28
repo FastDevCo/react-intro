@@ -4,3 +4,5 @@
 * `exercises` contain small exercises that lead towards the final result demonstrated in example_solution
 * `theory` contain our presentation & example snippets on React
 
+## Result
+![Giffu](https://raw.githubusercontent.com/FastDevCo/react-intro/master/todo.gif)
