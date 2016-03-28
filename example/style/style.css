@@ -1,0 +1,124 @@
+@import url(normalize.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+
+body {
+  background-color: rgb(22, 22, 26);
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%;
+}
+
+@media only screen and (min-width:70em) {
+  #app-container {
+    width: 60%;
+    margin: auto;
+  }
+}
+i {
+  font-size: 150% !important;
+}
+
+.progress-container {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  overflow: hidden;
+}
+.progress {
+    transition: all 0.3s;
+    background: -webkit-linear-gradient(45deg, rgba(233, 50, 71, 1), rgb(244, 92, 131));
+}
+.task.undone {
+  color: #FFF;
+  background-color: rgb(30, 29, 37);
+}
+.task.done {
+  color: rgb(75,75,75);
+  background-color: rgb(25, 24, 29);
+}
+.task.done:hover {
+
+}
+.not-ready-tasks {
+  border-bottom: 2px solid rgb(42, 40, 46);
+}
+.tasks {
+  display: flex;
+  flex-direction: column;
+}
+.tasks small {
+  color: rgb(95,95,95);
+  font-weight: 600;
+  font-size: 0.4em;
+  padding: 5px;
+}
+.task {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.task strong {
+  font-weight: 300;
+}
+.task:hover .remove-btn {
+  opacity: 1;
+}
+.task-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 50px;
+}
+.task-actions button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.update-btn:hover {
+  color: rgb(157, 255, 59);
+}
+.update-btn {
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: rgb(75,75,80);
+}
+.update-input {
+  background-color: rgb(23, 22, 27);
+  outline: none;
+  padding: 10px;
+  font-weight: 100;
+  color: #FFF;
+  border: 0;
+}
+.remove-btn {
+  transition: all 0.1s;
+  opacity: 0;
+  color: rgb(75,75,80);
+}
+.remove-btn:hover {
+  color: rgb(190, 63, 0);
+}
+i.undone {
+  color: rgb(75,75,80);
+  transition: all 0.1s;
+}
+i.done {
+  color: rgb(41, 41, 41);
+  transition: all 0.1s;
+}
+.task:hover i.done {
+  color: rgb(190, 63, 0);
+}
+.task:hover i.undone {
+  color: rgb(157, 255, 59);
+}
+.add-task-container input {
+  width: 100%;
+  background-color: rgb(23, 22, 27);
+  outline: none;
+  padding: 10px;
+  font-weight: 100;
+  color: #FFF;
+  border: 0;
+}
