@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React Simple</title>
+    <!-- This is just Babel stuff to compile ES6 and JSX -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+    <!-- Import React -->
+    <script type="text/javascript" src="https://fb.me/react-0.14.7.js"></script>
+    <script type="text/javascript" src="https://fb.me/react-dom-0.14.7.js"></script>
+  </head>
+  <body>
+    <!-- This is where we attach React -->
+    <div id="app"></div>    
+    <script type="text/babel">
+      
+      var data = { // or more precisely: the initial data
+        friends: [{ name: 'John', age: 25 }, { name: 'Mary', age: 24 }]
+      }
+
+      function FriendList(props) {
+        var listItems = props.friends.map(function (friend) {
+          return <li>{friend.name} (age: {friend.age})</li>
+        });
+        return <ul>{listItems}</ul>
+      }
+      
+      var AddFriendForm = React.createClass({
+        handleNameChange: function (e) { this.setState({name: e.target.value}); },
+        handleAgeChange:  function (e) { this.setState({age: e.target.value}); },
+        handleSubmit:     function (e) { 
+          e.preventDefault();
+          this.props.addFriend(this.state.name, this.state.age); 
+        },
+        render: function () {
+          return (
+            <form onSubmit={this.handleSubmit}>
+              <input name="name" type="text" onChange={this.handleNameChange}/>
+              <input name="age" type="number" onChange={this.handleAgeChange}/>
+              <button type="submit">Add friend</button>
+            </form>
+          ) 
+        }
+      });
+
+      var FriendListContainer = React.createClass({
+        render: function () {
+          // pass the onClick callback to AddFriendForm
+          return (            
+            <div>
+              <h1>{this.props.title}</h1>
+              <FriendList friends={this.props.friends}/>
+              <AddFriendForm addFriend={this.props.addFriend}/> 
+            </div>
+          )
+        }
+      })
+
+      var FriendsApp = React.createClass({
+        addFriend: function (name, age) {
+          this.setState({ 
+            friends: this.state.friends.concat({ name: name, age: age }) 
+          });
+        },
+
+        getInitialState: function () { 
+          return data; 
+        },
+
+        render: function () {
+          return <FriendListContainer 
+                  title={'These are my friends'}
+                  friends={this.state.friends} 
+                  addFriend={this.addFriend}/>
+        }
+      });
+
+      ReactDOM.render(<FriendsApp />, document.getElementById("app"))
+    </script>
+  </body>
+</html>

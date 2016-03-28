@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React Simple</title>
+    <!-- This is just Babel stuff to compile ES6 and JSX -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+    <!-- Import React -->
+    <script type="text/javascript" src="https://fb.me/react-0.14.7.js"></script>
+    <script type="text/javascript" src="https://fb.me/react-dom-0.14.7.js"></script>
+
+    <style>
+      .component {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- This is where we attach React -->
+    <div id="app"></div>
+    <script type="text/babel">
+
+      /*
+      Data:
+      - there are many fancy ways to handle your data - let's start with something simple.
+      */
+      var data = {
+        friends: [
+          { name: "John", age: 25 },
+          { name: "Mary", age: 24 }
+        ]
+      }
+      
+      /* 
+      React app consists of small Components that are
+      - easy to understand
+      - single purpose
+      - reusable
+      - often very 'functional' (as in functional programming)
+      */
+
+      function AddFriendButton(props) {
+        return (
+          <button onClick={props.addFriend}>
+          Add friend
+          </button>
+        )
+      }
+
+      function FriendItem(props) {
+        return <li>{props.name} (age: {props.age})</li>
+      }
+
+      function FriendList(props) {
+        var listItems = props.friends.map(function (friend) {
+          return <FriendItem name={friend.name} age={friend.age} />
+        });
+        return <ul>{listItems}</ul>
+      }
+
+      var FriendListContainer = React.createClass({
+        render: function () {
+          return (
+            <div>
+              <h1>{this.props.title}</h1>
+              <FriendList friends={this.props.friends}/>
+            </div>
+          )
+        }
+      })
+
+
+      var FriendsApp = React.createClass({
+        getInitialState: function () {
+          // this.state now contains data
+          return data;
+        },
+        render: function () {
+          // FriendListContainer.props will contain title and friends
+          return <FriendListContainer 
+                  title={'These are my friends'}
+                  friends={this.state.friends} />
+        }
+      });
+
+      // Attach react into your HTML
+      ReactDOM.render(<FriendsApp />, document.getElementById("app"))
+      
+    </script>
+
+  </body>
+</html>

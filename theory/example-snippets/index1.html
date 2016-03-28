@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React Simple</title>
+    <!-- This is just Babel stuff to compile ES6 and JSX -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+    <!-- Import React -->
+    <script type="text/javascript" src="https://fb.me/react-0.14.7.js"></script>
+    <script type="text/javascript" src="https://fb.me/react-dom-0.14.7.js"></script>
+  </head>
+  <body>
+    
+    <!-- This is where we attach React -->
+    <div id="app"></div>
+    <script type="text/babel">
+
+      /*
+      Data:
+      - there are many fancy ways to handle your data - let's start with something simple.
+      */
+      var data = {
+        friends: [
+          { name: "John", age: 25 },
+          { name: "Mary", age: 24 }
+        ]
+      }
+      
+      /*
+        Components:
+        - in their simplest form, these are just functions: data => representation
+        - note: in React, we call the input "props" - short for "properties"
+      */
+      function FriendList(props) {
+        var listItems = props.friends.map(function (friend) {
+          return React.createElement('li', {}, friend.name + '(age: ' + friend.age + ')');
+        });
+        return React.createElement('ul', {}, listItems);
+      }
+
+      // Attach react into your HTML - see how friends can now be found from props.friends above
+      ReactDOM.render(<FriendList friends={data.friends} />, document.getElementById('app'))
+    </script>
+  </body>
+</html>
+
+
