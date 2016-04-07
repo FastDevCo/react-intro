@@ -11,16 +11,21 @@ var original_tasks = [
 
 
 function Task (props) {
-  return <h1>{props.content}</h1>
+  return <li>{props.content}</li>
+}
+
+function TaskList (props) {
+  var tasks = props.tasks.map(function (task) {
+    return <Task content={task} />
+  });
+  return <ul>{tasks}</ul>
 }
 
 var TodoApp = function() {
-  var tasks = original_tasks.map(function (task) {
-    return (<Task content={task}/>)
-  });
-  return (<div className="todo-app">{tasks}</div>);
+  return (<div className="todo-app">
+            <TaskList tasks={original_tasks}></TaskList>
+          </div>);
 };
-
 
 ReactDOM.render(
   <TodoApp></TodoApp>,
