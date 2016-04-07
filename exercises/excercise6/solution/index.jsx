@@ -26,7 +26,10 @@ var original_tasks = [{
 
 
 function Task (props) {
-  return (<div className={"task " + (props.content.done ? "done" : "undone")}>
+  // we want to assign different CSS to 'done' and 'undone' items
+  var taskClass = props.content.done ? 'done' : 'undone';
+
+  return (<div className={"task " + taskClass}>
             <div className="task-main">
               <span><strong>{props.content.task}</strong></span>
             </div>
