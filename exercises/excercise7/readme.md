@@ -12,7 +12,9 @@ This is the last excercise of first section.
 - Add task actions (remove task- and toggle task status-buttons) into `Task` like in example app.
 - Create new component `AddTaskInput` for task input field. Add it into its place like in example app.
 
+## Desired output
 
+![https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise7/should_look_like.png](https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise7/should_look_like.png)
 
 #### Task actions as html:
 ```
@@ -41,3 +43,7 @@ This is the last excercise of first section.
 </div>
 
 ```
+
+#### Task actions should look like this
+
+![https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise7/remove_btn.png](https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise7/remove_btn.png)
