@@ -12,6 +12,8 @@ After refining components structures your application should look like `rendered
 - Assign correct style classes (follow the `rendered_example.html`) to elements in components
 - Create or replace elements from components so they render out as example html-file
 
+## Desired output
+![https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise5/styles_added.png](https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise5/styles_added.png)
 
 ## Tips
 
