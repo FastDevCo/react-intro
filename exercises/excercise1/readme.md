@@ -2,10 +2,11 @@
 
 Rendering stuff
 
-Create `Task`-component which takes `content` as property and prints it in `<h1></h1>`-tag.
+Our current application is little boring isn't it?
 
+If we're going to make it to-do-app we have to list some tasks.
 
-Print following tasks in your application:
+Make your app to render following tasks in your application:
 
 - Do dishes
 - Code application
@@ -13,9 +14,25 @@ Print following tasks in your application:
 - Get funding
 
 
+
+## Tasks
+
+- Create `Task`-component (from `Hello`-component) which takes `content` as property and renders it in `<li></li>`-tags.
+- Use Task-components to render your list into app _(no loops or other fancy stuff yet, just copy and paste)_
+
+
+## Example use of Task-component
+
+```
+<Task content="Feed your cat" />
+
+// Renders out:
+<li>Feed your cat</li>
+```
+
 ## Tips
 
-You can access props in component like this:
+You can access props in components like this:
 
 ```
 function Component (props) {
