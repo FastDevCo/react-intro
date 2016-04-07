@@ -9,6 +9,10 @@ For `Task`-components we have classes `done / undone`
 - Modify `TaskList`-component so you can use it generally for two lists. (done and undone)
 - Use modified `TaskList`-component for done-tasks-list
 
+## Desired output
+![https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise6/done_and_undone.png](https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise6/done_and_undone.png)
+
+
 ## Tips
 
 #### Tip 1
