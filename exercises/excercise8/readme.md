@@ -10,8 +10,9 @@ We have already created TodoData-model to persist your tasks into localstorage. 
 ## Tasks
 - Copy `models/`-directory to your app.
 - Import `TodoData` in your `index.jsx`
-- Remove old `original_tasks`
+- Replace old TodoApp-component with new TodoApp-component from `excercise8/todoapp.jsx`
 
+New TodoApp-component uses the imported TodoData-model and is class-component (not function component)
 
 ```
 // in index.jsx head
@@ -21,11 +22,33 @@ import {TodoData} from './model/todomodel';
 // init our datastore
 var appstate = new TodoData();
 
-// replace old hardcoded tasks temporarily with this if you want your app still working as before
-var original_tasks = appstate.getTasks();
+```
+
+## Tips
+
+
+### Tip 1
+Converting function component to class component is easy:
 
 ```
 
-## Tip
+var HelloFunctionComponent = function(props) {
+  var greeting = "Hello " + props.name + "!";
+  return (<h1>{greeting}</h1>);
+};
 
+
+var HelloClassComponent = React.createClass({
+
+  render: function() {
+    var greeting = "Hello " + this.props.name + "!";
+    return (<h1>{greeting}</h1>);
+  }
+});
+
+```
+
+
+
+### Tip 2
 You can start from clean slate by just copying `model`-directory and `solution/index.jsx` to your base.
