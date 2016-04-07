@@ -13,7 +13,7 @@ Make your app to render following tasks in your application:
 - Start marketing campaign
 - Get funding
 
-
+![https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise1/tasks.png](https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise1/tasks.png)
 
 ## Tasks
 
