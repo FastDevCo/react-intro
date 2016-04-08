@@ -8,6 +8,7 @@ module.exports = {
     publicPath: __dirname + '/dist',
     filename: 'bundle.js'
   },
+  devtool: 'inline-sourcemap',
   watch: true,
   module: {
     loaders: [
