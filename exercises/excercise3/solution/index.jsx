@@ -3,9 +3,9 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var original_tasks = [
-             "Do dishes"
-             "Code application"
-             "Start marketing campaign"
+             "Do dishes",
+             "Code application",
+             "Start marketing campaign",
              "Get funding"
             ];
 
