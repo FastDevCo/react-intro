@@ -17,11 +17,16 @@ To get the best experience:
 
 `npm install`
 
+* Optional: install webpack globally:
+`npm install -g webpack`
+If you don't have rights or don't want to install it globally you can use it from node_modules:
+`node_modules/webpack/bin/webpack.js`~ `webpack`
+
 * compile & watch:
 
 `webpack --config webpack.config.js`
 
-* locahost server:
+* locahost server (you can use node-http, or anything that serves files):
 
 `python3 -m http.server`
 
