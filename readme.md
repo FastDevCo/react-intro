@@ -7,6 +7,14 @@
 * `theory` contain our presentation & example snippets on React
 
 
+## Dependencies
+
+* [Node.js](https://nodejs.org/en/download/package-manager/)
+* some way to create a localhost server
+  * `python` or `python3` (if you have them already installed)
+  * `npm install -g node-server` https://github.com/indexzero/http-server
+  * if everything fails, pick your poison: https://gist.github.com/willurd/5720255
+
 ## Instructions
 
 * the starting point of the exercises is at `cd ./exercises/base/`
