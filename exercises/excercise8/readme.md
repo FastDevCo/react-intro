@@ -8,7 +8,7 @@ First you have to do some cleanup and add new things into your app.
 We have already created TodoData-model to persist your tasks into localstorage. You don't have to care about it because we're just using it through API.
 
 ## Tasks
-- Copy `models/`-directory to your app.
+- Copy `model/`-directory to your app.
 - Import `TodoData` in your `index.jsx`
 - Replace old TodoApp-component with new TodoApp-component from `excercise8/todoapp.jsx`
 
