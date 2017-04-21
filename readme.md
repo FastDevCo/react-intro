@@ -26,7 +26,7 @@
 
 ## Acknowledgements
 
-This material is made by [@elnygren](https://github.com/elnygren) and [@theikkila](https://github.com/theikkila) from Emblica and [FastDevCo](http://fastdevco.com/)
+This material is made by [@elnygren](https://github.com/elnygren) and [@theikkila](https://github.com/theikkila) from [Emblica](https://emblica.fi) and [FastDevCo](http://fastdevco.com/)
 
 You are free to use this material non-commercially. Any changes must be made publicly available.
 
