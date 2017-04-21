@@ -12,9 +12,9 @@
   </head>
   <body>
     <!-- This is where we attach React -->
-    <div id="app"></div>    
+    <div id="app"></div>
     <script type="text/babel">
-      
+
       var data = { // or more precisely: the initial data
         friends: [{ name: 'John', age: 25 }, { name: 'Mary', age: 24 }]
       }
@@ -25,13 +25,13 @@
         });
         return <ul>{listItems}</ul>
       }
-      
+
       var AddFriendForm = React.createClass({
         handleNameChange: function (e) { this.setState({name: e.target.value}); },
         handleAgeChange:  function (e) { this.setState({age: e.target.value}); },
-        handleSubmit:     function (e) { 
+        handleSubmit:     function (e) {
           e.preventDefault();
-          this.props.addFriend(this.state.name, this.state.age); 
+          this.props.addFriend(this.state.name, this.state.age);
         },
         render: function () {
           return (
@@ -40,18 +40,18 @@
               <input name="age" type="number" onChange={this.handleAgeChange}/>
               <button type="submit">Add friend</button>
             </form>
-          ) 
+          )
         }
       });
 
       var FriendListContainer = React.createClass({
         render: function () {
           // pass the onClick callback to AddFriendForm
-          return (            
+          return (
             <div>
               <h1>{this.props.title}</h1>
               <FriendList friends={this.props.friends}/>
-              <AddFriendForm addFriend={this.props.addFriend}/> 
+              <AddFriendForm addFriend={this.props.addFriend}/>
             </div>
           )
         }
@@ -59,19 +59,19 @@
 
       var FriendsApp = React.createClass({
         addFriend: function (name, age) {
-          this.setState({ 
-            friends: this.state.friends.concat({ name: name, age: age }) 
+          this.setState({
+            friends: this.state.friends.concat({ name: name, age: age })
           });
         },
 
-        getInitialState: function () { 
-          return data; 
+        getInitialState: function () {
+          return data;
         },
 
         render: function () {
-          return <FriendListContainer 
+          return <FriendListContainer
                   title={'These are my friends'}
-                  friends={this.state.friends} 
+                  friends={this.state.friends}
                   addFriend={this.addFriend}/>
         }
       });

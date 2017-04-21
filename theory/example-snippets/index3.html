@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    
+
     <!-- This is where we attach React -->
     <div id="app"></div>
     <script type="text/babel">
@@ -33,8 +33,8 @@
           { name: "Mary", age: 24 }
         ]
       }
-      
-      /* 
+
+      /*
       React app consists of small Components that are
       - easy to understand
       - single purpose
@@ -80,7 +80,7 @@
         },
         render: function () {
           // FriendListContainer.props will contain title and friends
-          return <FriendListContainer 
+          return <FriendListContainer
                   title={'These are my friends'}
                   friends={this.state.friends} />
         }
@@ -88,7 +88,7 @@
 
       // Attach react into your HTML
       ReactDOM.render(<FriendsApp />, document.getElementById("app"))
-      
+
     </script>
 
   </body>

@@ -88,7 +88,7 @@ function loadState () {
 
   appstate.addTask(task); // fn gets called with TodoDate.state.
 
-  Subscribe allows to add functions that get called every time the state changes. 
+  Subscribe allows to add functions that get called every time the state changes.
   This is handy when you want to call React Component's setState everytime the data in
   TodoData changes to trigger re-rendering:
 
@@ -98,7 +98,7 @@ function loadState () {
 */
 
 export class TodoData {
-  
+
   constructor() {
     this.state = loadState();
     this.callbacks = [];
@@ -112,7 +112,7 @@ export class TodoData {
     saveState(this.state);
     this.callbacks.forEach(cb => cb(this.state));
   }
-  
+
   load() {
     this.state = loadState();
     this.notify();
@@ -125,8 +125,8 @@ export class TodoData {
 
   getState() {
     return this.state;
-  
   }
+
   getTasks() {
     return this.state.tasks;
   }
@@ -144,16 +144,16 @@ export class TodoData {
 
   updateTask(task_id, updated_task) {
     this.state.tasks = this.state.tasks.map(task => {
-        if (task.id === task_id) task.task = updated_task;
-        return task;
+      if (task.id === task_id) task.task = updated_task;
+      return task;
     });
     this.notify();
   }
 
   toggleTask(task_id) {
     this.state.tasks = this.state.tasks.map(task => {
-        if (task.id === task_id) task.done = !task.done;
-        return task;
+      if (task.id === task_id) task.done = !task.done;
+      return task;
     });
     this.notify();
   }
