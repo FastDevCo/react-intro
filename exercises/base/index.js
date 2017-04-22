@@ -1,20 +1,16 @@
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
-// Loading react related libraries
-var React = require('react');
-var ReactDOM = require('react-dom');
-
-
-var Hello = function (props) {
+const Hello = function (props) {
   return (<h1>Hello {props.to}!</h1>);
 };
 
-var TodoApp = function () {
-  var name = "World";
-  return (<div className="todo-app">
+const TodoApp = function () {
+  const name = 'World';
+  return (<div className='todo-app'>
             <Hello to={name} />
           </div>);
 };
-
 
 ReactDOM.render(
   <TodoApp></TodoApp>,
