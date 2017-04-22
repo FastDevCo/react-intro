@@ -20,45 +20,39 @@ You can use plain javascript (functions, conditionals, loops, etc. - especially 
 
 **ie.**
 
-```
-<div className={"tasks " + type}>Hello!</div>
+```html
+<div className={`tasks ${type}`}>Hello!</div>
 ```
 
 #### Tip 2
 You probably want to use `Array.filter` when selecting items for done and undone lists.
 
-```
-var people = [
-  {age: 4, name: "Pekka"},
-  {age: 35, name: "Mauri"},
-  {age: 12, name: "Liisa"},
-  {age: 66, name: "Sami"},
-  {age: 21, name: "Laura"}
+```javascript
+const people = [
+  {age: 4, name: 'Pekka'},
+  {age: 35, name: 'Mauri'},
+  {age: 12, name: 'Liisa'},
+  {age: 66, name: 'Sami'},
+  {age: 21, name: 'Laura'}
 ];
 
 
 // Get names of people over 18
-var over_18 = people.filter(function (human) {
-  return human.age > 18;
-}).map(function (human) {
-  return human.name;
-});
+const over18 = people.filter(human => human.age > 18)
+                     .map(human => human.name);
 
 // ->
 
-["Mauri", "Sami", "Laura"]
+['Mauri', 'Sami', 'Laura']
 
 ```
 #### Tip 3
 
 You can use predicate functions in place of anonymous functions. That will make your code cleaner, readable and declarative.
 
-```
+```javascript
 
-function is_over_18 (human) {
-  return human.age > 18;
-}
-
-var over_18 = people.filter(is_over_18);
+const isOver18 = (human) => human.age > 18;
+const over18 = people.filter(is_over_18);
 
 ```

@@ -35,10 +35,15 @@ Make your app to render following tasks in your application:
 You can access props in components like this:
 
 ```
-function Component (props) {
-  // props.name === "Reima"
+const Component = (props) => {
+  // props.name === "John Doe"
 }
 
-<Component name="Reima" />
+// protip: you can grab things from props with an easier syntax
+const Component = ({name}) => {
+  // name === "John Doe"
+}
+
+<Component name="John Doe" />
 
 ```

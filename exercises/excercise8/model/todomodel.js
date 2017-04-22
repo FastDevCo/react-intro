@@ -9,27 +9,27 @@ const DEFAULT_STATE = {
     {
       'id': '1e01ba13-ea47-4d24-9131-d95c23d1bb8f',
       'done': false,
-      'task': 'Learn React'
+      'value': 'Learn React'
     },
     {
       'id': '076e0daf-e4ee-42af-8c3d-f6210920b0b7',
       'done': true,
-      'task': 'Rake the yard'
+      'value': 'Rake the yard'
     },
     {
       'id': '5516fdbb-046a-4a4a-9085-36086b5ef00a',
       'done': false,
-      'task': 'Buy milk'
+      'value': 'Buy milk'
     },
     {
       'id': '385f6953-9658-4b3d-a791-afcd9460cb2b',
       'done': false,
-      'task': 'Buy eggs'
+      'value': 'Buy eggs'
     },
     {
       'id': 'e8f3921b-157c-4ac5-b54c-24485048a9c1',
       'done': true,
-      'task': 'Prepare next trip to south'
+      'value': 'Prepare next trip to south'
     }
   ]
 };
@@ -88,7 +88,7 @@ function loadState () {
 
   appstate.addTask(task); // fn gets called with TodoDate.state.
 
-  Subscribe allows to add functions that get called every time the state changes. 
+  Subscribe allows to add functions that get called every time the state changes.
   This is handy when you want to call React Component's setState everytime the data in
   TodoData changes to trigger re-rendering:
 
@@ -98,7 +98,7 @@ function loadState () {
 */
 
 export class TodoData {
-  
+
   constructor() {
     this.state = loadState();
     this.callbacks = [];
@@ -112,7 +112,7 @@ export class TodoData {
     saveState(this.state);
     this.callbacks.forEach(cb => cb(this.state));
   }
-  
+
   load() {
     this.state = loadState();
     this.notify();
@@ -125,15 +125,15 @@ export class TodoData {
 
   getState() {
     return this.state;
-  
   }
+
   getTasks() {
     return this.state.tasks;
   }
 
   addTask(task) {
     const task_id = uuid();
-    this.state.tasks.push({id: task_id, done: false, task: task});
+    this.state.tasks.push({id: task_id, done: false, value: task});
     this.notify();
   }
 
@@ -144,16 +144,16 @@ export class TodoData {
 
   updateTask(task_id, updated_task) {
     this.state.tasks = this.state.tasks.map(task => {
-        if (task.id === task_id) task.task = updated_task;
-        return task;
+      if (task.id === task_id) task.value = updated_task;
+      return task;
     });
     this.notify();
   }
 
   toggleTask(task_id) {
     this.state.tasks = this.state.tasks.map(task => {
-        if (task.id === task_id) task.done = !task.done;
-        return task;
+      if (task.id === task_id) task.done = !task.done;
+      return task;
     });
     this.notify();
   }

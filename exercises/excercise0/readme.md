@@ -7,4 +7,4 @@ Edit `base/index.jsx` to print your name.
 > Hello Reima React!
 
 
-Check the results by visiting `<url>`
+Check the results by visiting your app with your browser. 
