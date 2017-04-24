@@ -45,7 +45,7 @@ export class TodoData {
   }
 
   addTask(task) {
-    axios.post('http://localhost:8888/api/todos', {task: task})
+    axios.post('http://localhost:8888/api/todos', {value: task})
       .then((response) => {
         this.state.tasks.push(response.data);
         this.notify();
@@ -67,7 +67,7 @@ export class TodoData {
   }
 
   updateTask(task_id, updated_task) {
-    axios.put(`http://localhost:8888/api/todos/${task_id}`, {task: updated_task})
+    axios.put(`http://localhost:8888/api/todos/${task_id}`, updated_task)
       .then((response) => {
         this.state.tasks = this.state.tasks.map(task => {
           if (task.id === task_id) return response.data;
