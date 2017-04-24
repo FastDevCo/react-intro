@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "server": "http-server"
+    "server": "http-server -c-1"
   },
   "dependencies": {
     "axios": "^0.16.1",
