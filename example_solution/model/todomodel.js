@@ -1,4 +1,3 @@
-
 const STORAGE_KEY = 'todo-state';
 
 /*
@@ -9,27 +8,27 @@ const DEFAULT_STATE = {
     {
       'id': '1e01ba13-ea47-4d24-9131-d95c23d1bb8f',
       'done': false,
-      'task': 'Learn React'
+      'value': 'Learn React'
     },
     {
       'id': '076e0daf-e4ee-42af-8c3d-f6210920b0b7',
       'done': true,
-      'task': 'Rake the yard'
+      'value': 'Rake the yard'
     },
     {
       'id': '5516fdbb-046a-4a4a-9085-36086b5ef00a',
       'done': false,
-      'task': 'Buy milk'
+      'value': 'Buy milk'
     },
     {
       'id': '385f6953-9658-4b3d-a791-afcd9460cb2b',
       'done': false,
-      'task': 'Buy eggs'
+      'value': 'Buy eggs'
     },
     {
       'id': 'e8f3921b-157c-4ac5-b54c-24485048a9c1',
       'done': true,
-      'task': 'Prepare next trip to south'
+      'value': 'Prepare next trip to south'
     }
   ]
 };
@@ -100,29 +99,32 @@ function loadState () {
 export class TodoData {
 
   constructor() {
-    this.state = loadState();
+    // init state and callbacks
+    this.state = {tasks: []}
     this.callbacks = [];
+
+    // load data from localStorage (or DEFAULT_STATE)
+    this.load()
   }
 
   subscribe(callback) {
+    // save the callback so it can be called in notify()
     this.callbacks.push(callback);
   }
 
   notify() {
-    saveState(this.state);
+    // call all the callbacks with current state
     this.callbacks.forEach(cb => cb(this.state));
   }
 
   load() {
+    // load data from localStorage (or DEFAULT_STATE)
     this.state = loadState();
+    saveState(this.state);
     this.notify();
   }
 
-  reset() {
-    this.state = DEFAULT_STATE;
-    this.notify();
-  }
-
+  /* GETTERS */
   getState() {
     return this.state;
   }
@@ -131,30 +133,37 @@ export class TodoData {
     return this.state.tasks;
   }
 
+  getTask(taskId) {
+    return this.state.tasks.find(task => task.id == taskId)
+  }
+
+  /* "SETTERS" */
+
   addTask(task) {
-    const task_id = uuid();
-    this.state.tasks.push({id: task_id, done: false, task: task});
+    const taskId = uuid();
+    this.state.tasks.push({id: taskId, done: false, value: task});
+    saveState(this.state);
     this.notify();
   }
 
-  removeTask(task_id) {
-    this.state.tasks = this.state.tasks.filter(task => { return task.id !== task_id });
+  removeTask(taskId) {
+    this.state.tasks = this.state.tasks.filter(task => task.id !== taskId);
+    saveState(this.state);
     this.notify();
   }
 
-  updateTask(task_id, updated_task) {
+  updateTask(taskId, updateData) {
     this.state.tasks = this.state.tasks.map(task => {
-      if (task.id === task_id) task.task = updated_task;
+      if (task.id === taskId) return Object.assign(task, updateData);
       return task;
     });
+    saveState(this.state);
     this.notify();
   }
 
-  toggleTask(task_id) {
-    this.state.tasks = this.state.tasks.map(task => {
-      if (task.id === task_id) task.done = !task.done;
-      return task;
-    });
+  toggleTask(taskId) {
+    this.updateTask(taskId, {done: !this.getTask(taskId).done});
+    saveState(this.state);
     this.notify();
   }
 }

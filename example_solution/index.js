@@ -3,7 +3,9 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 // this our data store abstraction
-import {TodoData} from './model/todomodel';
+// import {TodoData} from './model/todomodel';
+// use this instead if you want to test this with https://github.com/FastDevCo/nodejs-intro
+import {TodoData} from './model/todo_apimodel';
 
 // note: these are regular React components too !
 import {TodoProgressBar} from './components/todoheader';
@@ -40,7 +42,7 @@ class TaskItem extends Component {
   }
 
   save(task) {
-    appstate.updateTask(this.props.id, task);
+    appstate.updateTask(this.props.id, {value: task});
   }
 
   toggle(task) {
@@ -153,7 +155,7 @@ const TodoList = (props) => {
         <TaskItem
           key={task.id}
           id={task.id}
-          task={task.task}
+          task={task.value}
           done={task.done} />
       );
     });
