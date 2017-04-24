@@ -20,8 +20,8 @@ way up from there :)
 // init our datastore
 const appstate = new TodoData();
 
-// TaskItem represents a single ToDo task
-class TaskItem extends Component {
+// Task represents a single ToDo task
+class Task extends Component {
 
   /*
   some boring getter/setters for clarity
@@ -144,7 +144,7 @@ const TodoList = (props) => {
     .map(task => {
       return (
         /*
-        Here you might wonder: why not just <TaskItem task={task}/>.
+        Here you might wonder: why not just <Task task={task}/>.
 
         In bigger applications, it's better to have your components
         take as simple parameters as possible to KISS.
@@ -152,7 +152,7 @@ const TodoList = (props) => {
         Note: key is a special parameter needed by React. In essence,
         it helps with performance and is not strictly mandatory (logs a warning).
         */
-        <TaskItem
+        <Task
           key={task.id}
           id={task.id}
           task={task.value}

@@ -64,12 +64,6 @@ class AddTaskInput extends Component {
 // Task represents a single ToDo task
 class Task extends Component {
 
-  /*
-  some boring getter/setters for clarity
-  in a real application these might have extra features
-  ...or you might just use appstate.remove directly
-  */
-
   constructor(props) {
     super(props);
 
@@ -81,28 +75,24 @@ class Task extends Component {
   }
 
   render() {
+    // Destructure task from props
+    const { task } = this.props
 
     // we want to assign different CSS to 'done' and 'undone' items
-    const taskClass = this.props.done ? 'done' : 'undone';
+    const taskClass = task.done ? 'done' : 'undone'
 
     // note that we can assign a Component to a variable and give it as a
     // child to another one like this: <div>{ready}</div>
-    const ready = <i className={`${taskClass} fa fa-check-circle-o`}></i>;
+    const ready = <i className={`${taskClass} fa fa-check-circle-o`}></i>
 
-    /*
-    note the 'onClick' callbacks we give to buttons
-    ...and the naming convention we use for our Editable 'onSave' callback
 
-    Oh, about the Editable: it's just an editable input field that calls
-    onSave when you hit `Enter` key.
-    */
     return (
       <div className={`task ${taskClass}`}>
         <div className="task-main">
-          <Editable value={this.props.task} onSave={this.save} />
+          <span><strong>{task.value}</strong></span>
         </div>
         <div className="task-actions">
-            <button className="task-btn remove-btn" onClick={this.remove}>
+            <button className="task-btn remove-btn">
               <i className="fa fa-times-circle-o"></i>
             </button>
             <button className="task-btn" onClick={this.toggle}>{ready}</button>
