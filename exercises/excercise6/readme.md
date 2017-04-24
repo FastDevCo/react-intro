@@ -2,8 +2,8 @@
 
 Done tasks
 
-Our UI-designer created styles also for done tasks. Done task-list is sibling of undone task-list and uses class `ready-tasks`.
-For `Task`-components we have classes `done / undone`
+Our UI-designer also created styles for **done** tasks. **Done tasks**-list is sibling of **undone tasks**-list and uses class `ready-tasks`.
+For `Task`-components we just have classes `done / undone`
 
 ## Tasks
 - Modify `TaskList`-component so you can use it generally for two lists. (done and undone)
@@ -16,7 +16,7 @@ For `Task`-components we have classes `done / undone`
 ## Tips
 
 #### Tip 1
-You can use plain javascript (functions, conditionals, loops, etc. - especially Array.map is useful) in your JSX-code.
+You can use plain javascript (functions, conditionals, loops, etc. - especially Array.map is useful) in your JS-code.
 
 **ie.**
 
@@ -48,11 +48,11 @@ const over18 = people.filter(human => human.age > 18)
 ```
 #### Tip 3
 
-You can use predicate functions in place of anonymous functions. That will make your code cleaner, readable and declarative.
+You can use predicate functions in place of anonymous functions. That will make your code cleaner, more readable and declarative.
 
 ```javascript
 
 const isOver18 = (human) => human.age > 18;
-const over18 = people.filter(is_over_18);
+const over18 = people.filter(isOver18);
 
 ```

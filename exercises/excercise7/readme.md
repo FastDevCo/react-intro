@@ -5,7 +5,7 @@ Controls
 Our application is now showing us tasks but we don't have any controls for data.
 Lets create Input-field for new task and buttons for removing and for toggling task's status.
 
-This is the last excercise of first section.
+This is the last excercise of **the first section**.
 
 
 ## Tasks

@@ -10,7 +10,7 @@ After refining components structures your application should look like `rendered
 
 ## Tasks
 - Assign correct style classes (follow the `rendered_example.html`) to elements in components
-- Create or replace elements from components so they render out as example html-file
+- Create or replace elements from components so they render out as similar to example html-file
 
 ## Desired output
 ![https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise5/styles_added.png](https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise5/styles_added.png)
@@ -25,7 +25,7 @@ In React you must use `className` instead of `class`-attribute for defining clas
 <div className="task"></div>
 
 
-//
+// renders down to:
 
 <div class="task"></div>
 ```
