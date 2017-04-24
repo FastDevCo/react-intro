@@ -4,13 +4,13 @@ Rendering lists by programming
 
 Our code is now working but it's a bit repetitive.
 
-You should be using your brain and iterate lists rather than _Ctrl+c - Ctrl+v_
+You should be using your brains and iterate lists rather than _Ctrl+c - Ctrl+v_
 
-Remember React-components (including html-tags) are just data.
+Remember React-components (including html-tag-like-things) are just data.
 
 ## Task
 
-- Create a list of tasks using `Array.map` for modifying strings in list into `<li></li>`-tags
+- Create a list of tasks using `Array.map` for modifying strings from list into `<li></li>`-tags
 
 ## Tips
 

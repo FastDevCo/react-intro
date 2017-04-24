@@ -1,37 +1,32 @@
 
-const STORAGE_KEY = 'todo-state';
+const STORAGE_KEY = 'todo-state2';
 
 /*
   Seed data to have something to work with
 */
 const DEFAULT_STATE = {
-  'tasks': [
-    {
-      'id': '1e01ba13-ea47-4d24-9131-d95c23d1bb8f',
-      'done': false,
-      'value': 'Learn React'
+  "tasks": {
+    "1e01ba13-ea47-4d24-9131-d95c23d1bb8f": {
+      "done": false,
+      "value": "Learn React"
     },
-    {
-      'id': '076e0daf-e4ee-42af-8c3d-f6210920b0b7',
-      'done': true,
-      'value': 'Rake the yard'
+    "076e0daf-e4ee-42af-8c3d-f6210920b0b7": {
+      "done": true,
+      "value": "Rake the yard"
     },
-    {
-      'id': '5516fdbb-046a-4a4a-9085-36086b5ef00a',
-      'done': false,
-      'value': 'Buy milk'
+    "5516fdbb-046a-4a4a-9085-36086b5ef00a": {
+      "done": false,
+      "value": "Buy milk"
     },
-    {
-      'id': '385f6953-9658-4b3d-a791-afcd9460cb2b',
-      'done': false,
-      'value': 'Buy eggs'
+    "385f6953-9658-4b3d-a791-afcd9460cb2b": {
+      "done": false,
+      "value": "Buy eggs"
     },
-    {
-      'id': 'e8f3921b-157c-4ac5-b54c-24485048a9c1',
-      'done': true,
-      'value': 'Prepare next trip to south'
+    "e8f3921b-157c-4ac5-b54c-24485048a9c1": {
+      "done": true,
+      "value": "Prepare next trip to south"
     }
-  ]
+  }
 };
 
 
@@ -39,11 +34,11 @@ const DEFAULT_STATE = {
   Just returns a valid UUID, e.g
   uuid(); // 76306e1f-2614-4f95-ae14-b271127cc774
 
-  We use this to give tasks IDs. Why? Because UUIDs are fn awesome.
+  We use this to give tasks random IDs. Why? Because UUIDs are fn awesome.
 */
 function uuid() {
-  var i, random;
-  var uuid = '';
+  let i, random;
+  let uuid = '';
 
   for (i = 0; i < 32; i++) {
     random = Math.random() * 16 | 0;
@@ -57,7 +52,48 @@ function uuid() {
 }
 
 /*
-  Helper to save state into localStorage with STORAGE_KEY as the key
+  Creates a new list out of the two supplied by applying the function to each
+  equally-positioned pair in the lists. The returned list is truncated to the
+  length of the shorter of the two input lists.
+
+  Example:
+
+  const f = (x, y) => {
+    // ...
+  };
+  zipWith(f, [1, 2, 3], ['a', 'b', 'c']);
+  //=> [f(1, 'a'), f(2, 'b'), f(3, 'c')]
+
+*/
+function zipWith(fn, a, b) {
+  var rv = [];
+  var idx = 0;
+  var len = Math.min(a.length, b.length);
+  while (idx < len) {
+    rv[idx] = fn(a[idx], b[idx]);
+    idx += 1;
+  }
+  return rv;
+}
+
+
+/*
+* Convert object of objects into array of objects and assoc the key into attribute 'id'
+* Example:
+* toIdList({ 1: {name: "Aatu"}, 2: {name: "Pirkko"}})
+* //=> [{name: "Aatu", id: 1}, {name: "Pirkko", id: 2}]
+*/
+function toIdList(object) {
+  const ids = Object.keys(object);
+  const values = Object.values(object);
+  return zipWith((id, value) => Object.assign(value, {'id': id}), ids, values);
+}
+
+
+/*
+  Helper to save state into localStorage with STORAGE_KEY as the key.
+  Its only useful for persisting the data so it wont go into /dev/null
+  when youre refreshing the browser.
 */
 function saveState (state) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -79,6 +115,7 @@ function loadState () {
 }
 
 /*
+  NOTE: HERE IS THE BEEF!
   Data store abstraction.
 
   Usage:
@@ -109,17 +146,31 @@ export class TodoData {
   }
 
   notify() {
+    // Every time something state changing happens, we call notify()-function
+    // This function executes all subscribed callbacks. Simple and efficient :)
+    // -> so every time change happens it triggers chain of events
+    // and eventually re-renders the React components.
+
+    // This just converts tasks to list-form
+    const tasklist = toIdList(this.state.tasks)
+    // Call all handlers
+    this.callbacks.forEach(cb => cb(tasklist));
+  }
+
+  save() {
+    // Save the state into localstorage (or actually anywhere you like)
     saveState(this.state);
-    this.callbacks.forEach(cb => cb(this.state));
   }
 
   load() {
     this.state = loadState();
+    this.save();
     this.notify();
   }
 
   reset() {
     this.state = DEFAULT_STATE;
+    this.save();
     this.notify();
   }
 
@@ -128,33 +179,31 @@ export class TodoData {
   }
 
   getTasks() {
-    return this.state.tasks;
+    return toIdList(this.state.tasks);
   }
 
   addTask(task) {
     const task_id = uuid();
-    this.state.tasks.push({id: task_id, done: false, value: task});
+    this.state.tasks[task_id] = { done: false, value: task };
+    this.save();
     this.notify();
   }
 
   removeTask(task_id) {
-    this.state.tasks = this.state.tasks.filter(task => { return task.id !== task_id });
+    delete this.state.tasks[task_id];
+    this.save();
     this.notify();
   }
 
   updateTask(task_id, updated_task) {
-    this.state.tasks = this.state.tasks.map(task => {
-      if (task.id === task_id) task.value = updated_task;
-      return task;
-    });
+    this.state.tasks[task_id] = updated_task
+    this.save();
     this.notify();
   }
 
   toggleTask(task_id) {
-    this.state.tasks = this.state.tasks.map(task => {
-      if (task.id === task_id) task.done = !task.done;
-      return task;
-    });
+    this.state.tasks[task_id].done = !this.state.tasks[task_id].done;
+    this.save();
     this.notify();
   }
 }
