@@ -1,8 +1,13 @@
 {
   "name": "react-intro-base",
   "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "server": "http-server"
+  },
   "dependencies": {
     "axios": "^0.16.1",
+    "http-server": "^0.9.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },

@@ -123,7 +123,7 @@ class TodoApp extends Component {
   constructor(props) {
     super(props);
     // Set component's state
-    this.state = appstate.getState();
+    this.state = {tasks: appstate.getTasks()};
   }
 
   componentDidMount() {
@@ -138,7 +138,7 @@ class TodoApp extends Component {
     when data has changed.
     */
     appstate.subscribe(state => {
-      this.setState(state);
+      this.setState({tasks: state});
     });
   }
 

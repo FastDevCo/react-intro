@@ -103,7 +103,7 @@ class TodoApp extends Component {
   constructor(props) {
     super(props);
     // Set component's state
-    this.state = appstate.getState();
+    this.state = {tasks: appstate.getTasks()};
   }
 
   componentDidMount() {
