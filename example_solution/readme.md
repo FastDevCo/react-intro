@@ -6,6 +6,6 @@ This is the example solution, what you'll build during this course.
 
 ```
 npm install
-webpack --config webpack.config.js
-python -m http.server  # python3
+npm run build
+npm run server
 ```

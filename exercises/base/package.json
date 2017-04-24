@@ -1,6 +1,9 @@
 {
   "name": "react-intro-base",
   "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4"

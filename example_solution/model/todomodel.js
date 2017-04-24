@@ -1,5 +1,5 @@
 
-const STORAGE_KEY = 'todo-state2';
+const STORAGE_KEY = 'todo-state3';
 
 /*
   Seed data to have something to work with
