@@ -2,7 +2,7 @@
 
 Done tasks
 
-Our UI-designer also created styles for **done** tasks. **Done tasks**-list is sibling of **undone tasks**-list and uses class `ready-tasks`.
+Our UI-designer also created styles for **done** tasks. **Done tasks**-list is sibling of **undone tasks**-list and uses CSS-class `ready-tasks`.
 For `Task`-components we just have classes `done / undone`
 
 ## Tasks
@@ -56,3 +56,8 @@ const isOver18 = (human) => human.age > 18;
 const over18 = people.filter(isOver18);
 
 ```
+
+
+#### ProTip 4
+
+You can pass functions as props for React-components

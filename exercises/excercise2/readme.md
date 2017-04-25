@@ -19,14 +19,14 @@ Remember React-components (including html-tag-like-things) are just data.
 You can map data through function (or component) with `map`:
 
 ```javascript
-const tasks = [
+const originalTasks = [
   'Do dishes',
   'Code application',
   'Start marketing campaign',
   'Get funding',
 ];
 
-const newTasks = tasks.map(task => {
+const newTasks = originalTasks.map(task => {
   return task + ' is a task you should do!';
 });
 
