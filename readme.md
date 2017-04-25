@@ -17,7 +17,7 @@
 ## Instructions
 
 * the starting point of the exercises is at `cd ./exercises/base/`
-* Look at the `readme.md there
+* Look at the `readme.md` there
 
 ## Result
 ![Giffu](https://raw.githubusercontent.com/FastDevCo/react-intro/master/todo.gif)
