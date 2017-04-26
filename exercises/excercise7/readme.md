@@ -5,7 +5,7 @@ Controls
 Our application is now showing us tasks but we don't have any controls for data.
 Lets create Input-field for new task and buttons for removing and for toggling task's status.
 
-This is the last excercise of first section.
+This is the last excercise of **the first section**.
 
 
 ## Tasks
@@ -17,7 +17,8 @@ This is the last excercise of first section.
 ![https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise7/should_look_like.png](https://github.com/FastDevCo/react-intro/blob/master/exercises/excercise7/should_look_like.png)
 
 #### Task actions as html:
-```
+
+```html
 <div class="task-actions">
     <button class="task-btn remove-btn">
       <i class="fa fa-times-circle-o"></i>
@@ -33,7 +34,7 @@ This is the last excercise of first section.
 
 #### Task input as html:
 
-```
+```html
 
 <div class="add-task-container">
   <input

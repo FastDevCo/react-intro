@@ -6,6 +6,12 @@ Removing tasks.
 - Remove tasks if remove-button is clicked
 
 
+
+## Tips
+
+
+### Tip 1
+
 You can remove task with following API:
 ```
 var appstate = new TodoData();

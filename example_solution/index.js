@@ -3,7 +3,9 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 // this our data store abstraction
-import {TodoData} from './model/todomodel';
+// import {TodoData} from './model/todomodel';
+// use this instead if you want to test this with https://github.com/FastDevCo/nodejs-intro
+import {TodoData} from './model/todo_apimodel';
 
 // note: these are regular React components too !
 import {TodoProgressBar} from './components/todoheader';
@@ -18,8 +20,8 @@ way up from there :)
 // init our datastore
 const appstate = new TodoData();
 
-// TaskItem represents a single ToDo task
-class TaskItem extends Component {
+// Task represents a single ToDo task
+class Task extends Component {
 
   /*
   some boring getter/setters for clarity
@@ -40,7 +42,7 @@ class TaskItem extends Component {
   }
 
   save(task) {
-    appstate.updateTask(this.props.id, task);
+    appstate.updateTask(this.props.id, {value: task});
   }
 
   toggle(task) {
@@ -142,7 +144,7 @@ const TodoList = (props) => {
     .map(task => {
       return (
         /*
-        Here you might wonder: why not just <TaskItem task={task}/>.
+        Here you might wonder: why not just <Task task={task}/>.
 
         In bigger applications, it's better to have your components
         take as simple parameters as possible to KISS.
@@ -150,10 +152,10 @@ const TodoList = (props) => {
         Note: key is a special parameter needed by React. In essence,
         it helps with performance and is not strictly mandatory (logs a warning).
         */
-        <TaskItem
+        <Task
           key={task.id}
           id={task.id}
-          task={task.task}
+          task={task.value}
           done={task.done} />
       );
     });
@@ -171,7 +173,7 @@ class TodoApp extends Component {
 
   constructor(props) {
     super(props);
-    this.state = appstate.getState();
+    this.state = {tasks: appstate.getTasks()};
   }
 
   componentDidMount() {
@@ -186,7 +188,7 @@ class TodoApp extends Component {
     when data has changed.
     */
     appstate.subscribe(state => {
-      this.setState(state);
+      this.setState({tasks: state});
     });
   }
 

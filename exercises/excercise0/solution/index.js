@@ -6,7 +6,7 @@ const Hello = function (props) {
 };
 
 const TodoApp = function () {
-  const name = 'World';
+  const name = 'Reima React';
   return (<div className='todo-app'>
             <Hello to={name} />
           </div>);

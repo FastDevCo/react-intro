@@ -22,5 +22,10 @@ module.exports = {
       __dirname,
       'node_modules'
     ],
-  }
+  },
+  plugins: [
+     new webpack.LoaderOptionsPlugin({
+       debug: true
+     })
+   ]
 }
