@@ -17,7 +17,7 @@ You don't have to care about it's implementation yet, we'll use it just as a lib
 However you should probably take short inspection for the code of the model and try to understand how it works.
 
 ## Tasks
-- Copy `models/`-directory to your app.
+- Copy `model/`-directory to your app.
 - Import `TodoData` into your `index.js`
 - Replace old TodoApp-component with new TodoApp-component from `excercise8/todoapp.js` (just copy-paste and read the comments)
 
