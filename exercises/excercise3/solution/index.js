@@ -12,8 +12,8 @@ const Task = ({content}) => <li>{content}</li>;
 
 
 const TaskList = ({tasks}) => {
-  const tasks = props.tasks.map(task => <Task content={task} />);
-  return <ul>{tasks}</ul>;
+  const taskElems = tasks.map(task => <Task content={task} />);
+  return <ul>{taskElems}</ul>;
 }
 
 const TodoApp = () => {
