@@ -22,10 +22,9 @@ appstate.addTask("Feed the dog!");
 ```
 // AddTaskInput-internal initial state
 
-getInitialState: function () {
-  // the input field is empty when we start
-  return {task: ""}
-}
+// the input field is empty when we start
+{task: ""}
+
 ```
 
 
@@ -39,7 +38,7 @@ Class component can have internal state called `state` (surprise!)
 Its initialized in constructor of the class and later on can be accessed with `this.state`
 You can also **mutate** the contents of that state by calling: `this.setState({name: "new name"})`
 
-Read mode about that from __here__
+Read mode about that from https://facebook.github.io/react/docs/state-and-lifecycle.html
 
 
 Here is the basic structure of class with initialized state of `{"howCold": "very"}`
