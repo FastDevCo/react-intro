@@ -32,29 +32,65 @@ getInitialState: function () {
 
 ## Tips
 
-
 ### Tip 1
+
+Class component can have internal state called `state` (surprise!)
+
+Its initialized in constructor of the class and later on can be accessed with `this.state`
+You can also **mutate** the contents of that state by calling: `this.setState({name: "new name"})`
+
+Read mode about that from __here__
+
+
+Here is the basic structure of class with initialized state of `{"howCold": "very"}`
+
+```
+class ColdnessIndicator extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {"howCold": "very"}
+  }
+
+  render() {
+    return (
+      <h1>Today the coldness is: {this.state.howCold}</h1>
+    );
+  }
+};
+```
+
+
+### Tip 2
 Converting function component to class component is easy:
 
 ```
 
-var HelloFunctionComponent = function(props) {
-  var greeting = "Hello " + props.name + "!";
+const HelloFunctionComponent = (props) => {
+  const greeting = `Hello ${this.props.name}!`;
   return (<h1>{greeting}</h1>);
 };
 
 
-var HelloClassComponent = React.createClass({
 
-  render: function() {
-    var greeting = "Hello " + this.props.name + "!";
-    return (<h1>{greeting}</h1>);
+class HelloClassComponent extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {}
   }
-});
+
+  render() {
+    const greeting = `Hello ${this.props.name}!`;
+    return (
+      <h1>{greeting}</h1>
+    );
+  }
+};
 
 ```
 
-### Tip 2
+### Tip 3
 
 input-field has at least following useful attributes:
 - **value** input-fields value
