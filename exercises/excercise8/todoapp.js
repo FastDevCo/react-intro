@@ -4,7 +4,7 @@ const isUndone = task => !task.done;
 
 
 
-// Replace the TodoApp-component from your index.jsx with this:
+// Replace the TodoApp-component from your index.js with this:
 class TodoApp extends Component {
   /*
   We use the constructor and the React Component's built in componentDidMount method
