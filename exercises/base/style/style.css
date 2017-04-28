@@ -90,6 +90,7 @@ i {
   font-weight: 100;
   color: #FFF;
   border: 0;
+  width: 80%;
 }
 .remove-btn {
   transition: all 0.1s;
@@ -121,4 +122,8 @@ i.done {
   font-weight: 100;
   color: #FFF;
   border: 0;
+}
+
+.task-main {
+  width: 100%;
 }

@@ -42,7 +42,7 @@ class Task extends Component {
   }
 
   save(task) {
-    appstate.updateTask(this.props.id, {value: task});
+    appstate.updateTask(this.props.id, task});
   }
 
   toggle(task) {

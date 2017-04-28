@@ -3,7 +3,7 @@
 Toggling tasks.
 
 ## Tasks
-- Convert **Task**-component to class-based component (same operation)
+- Convert **Task**-component to class-based component (same operation than earlier)
 - Toggle tasks done/undone-state if toggle-button is clicked
 
 

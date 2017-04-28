@@ -196,7 +196,7 @@ export class TodoData {
   }
 
   updateTask(task_id, updated_task) {
-    this.state.tasks[task_id] = updated_task
+    this.state.tasks[task_id].value = updated_task
     this.save();
     this.notify();
   }
