@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 // this our data store abstraction
-// import {TodoData} from './model/todomodel';
+import {TodoData} from './model/todomodel';
 // use this instead if you want to test this with https://github.com/FastDevCo/nodejs-intro
-import {TodoData} from './model/todo_apimodel';
+//import {TodoData} from './model/todo_apimodel';
 
 // note: these are regular React components too !
 import {TodoProgressBar} from './components/todoheader';
