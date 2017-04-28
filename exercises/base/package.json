@@ -4,7 +4,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --watch --config webpack.config.js",
-    "dev": "concurrently 'webpack --watch --config webpack.config.js' 'http-server -c-1'",
+    "dev": "concurrently \"webpack --watch --config webpack.config.js\" \"http-server -c-1\"",
     "server": "http-server -c-1"
   },
   "dependencies": {
