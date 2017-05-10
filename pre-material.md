@@ -4,8 +4,7 @@ Before you arrive to the event we'd like you to take care of some basic things:
 
 * install Node.js (preferably the most recent LTS version)
 * install npm
-* install webpack (we are using webpack 2)
-* any easy static web server (python2 or python3 has a good one for this course)
+* install webpack (we are using webpack 2) (optional to install globaly because the course dependencies install it whatsoever)
 
 **!! this is NOT a comprehensive guide, please refer to search engines and online tutorials if you encounter problems !!**
 
@@ -21,11 +20,10 @@ node --version
 # should print 3.10.10 (or similar/above)
 npm --version
 
+# ! Optional !
 # should print 2.2.1 (or atleast above 2.0)
 webpack --version
 
-# should print 2.x.x or 3.x.x
-python --version
 ```
 
 The final test is to check out our example app. **If this works, you're all set**.
@@ -34,12 +32,11 @@ The final test is to check out our example app. **If this works, you're all set*
 git clone git@github.com:FastDevCo/react-intro.git
 cd example_solution/
 npm install
-webpack --config webpack.config.js --watch
+npm run build
+npm run server
 
-# other window, same dir, start your webserver
-python -m http.server  # if you went python3
-
-# app should now run on port localhost:8000, check with your browser
+# app should now run on http://localhost:8080, check with your browser
+# If you have something running on that port see the output of the last command to point out in which port the server is running.
 ```
 
 ### Install Node.js
@@ -55,19 +52,13 @@ We recommend you use a version manager that makes it easy to jump between differ
 
 ### Install npm
 
+This is package manager for the node.js and its required.
 * you probably have this already, make sure with: `npm --version` command.
 * if not, check google + official tutorials of whichever version manager / approach you used in the step above
 
-### webpack
-
+### webpack (optional)
+This package is automaticly installed in `npm install` - section but if you want to install it globally to your computer you can install it like this:
 ```
 npm install -g webpack
 ```
-
-### static web server
-
-Use any of the following:
-
-* python
-* https://github.com/indexzero/http-server
-* https://gist.github.com/willurd/5720255
+After that you should be able to use it outside of our project for your own projects or debugging webpack configurations.
