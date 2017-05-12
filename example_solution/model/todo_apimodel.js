@@ -16,7 +16,7 @@ export class TodoData {
   }
 
   notify() {
-    this.callbacks.forEach(cb => cb(this.state));
+    this.callbacks.forEach(cb => cb(this.state.tasks));
   }
 
   load() {
