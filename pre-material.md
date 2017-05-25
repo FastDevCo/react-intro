@@ -29,7 +29,7 @@ webpack --version
 The final test is to check out our example app. **If this works, you're all set**.
 
 ```
-git clone git@github.com:FastDevCo/react-intro.git
+git clone https://github.com/FastDevCo/react-intro.git
 cd example_solution/
 npm install
 npm run build
