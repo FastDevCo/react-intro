@@ -18,16 +18,23 @@
 
       // Data:
       // - there are many fancy ways to handle your data - let's start with something simple.
+
       const data = {
-        friends: [{name: 'John', age: 25},
-                  {name: 'Mary', age: 24}]
+        friends: [
+          {name: 'John', age: 25},
+          {name: 'Mary', age: 24}
+        ]
       }
 
       // Components:
       // - in their simplest form, these are just functions: data => representation
       // - note: in React, we call the input "props" - short for "properties"
+
+
       const FriendList = (props) => {
-        const listItems = props.friends.map(friend => <li>{friend.name} (age: {friend.age})</li>)
+        const listItems = props.friends.map(friend => (
+          <li>{friend.name} (age: {friend.age})</li>)
+        )
         return <ul>{listItems}</ul>
       }
 
