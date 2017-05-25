@@ -32,11 +32,18 @@ The final test is to check out our example app. **If this works, you're all set*
 git clone https://github.com/FastDevCo/react-intro.git
 cd example_solution/
 npm install
+npm run dev
+
+# app should now run on http://localhost:8080, check with your browser
+# (if you have something running on that port, close it or edit package.json)
+
+# NOTE: the old (and still working) commands were
 npm run build
 npm run server
 
-# app should now run on http://localhost:8080, check with your browser
-# If you have something running on that port see the output of the last command to point out in which port the server is running.
+# npm run dev is essentially a shorthand for running both of those 
+# at at the same time (and rebuilding when changes happen)
+
 ```
 
 ### Install Node.js
