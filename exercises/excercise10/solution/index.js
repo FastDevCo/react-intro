@@ -71,7 +71,7 @@ class Task extends Component {
   }
 
   toggle(task) {
-    appstate.toggleTask(this.props.id);
+    appstate.toggleTask(this.props.task.id);
   }
 
   render() {
