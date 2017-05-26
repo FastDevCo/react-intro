@@ -72,11 +72,11 @@ class Task extends Component {
   }
 
   remove() {
-    appstate.removeTask(this.props.id);
+    appstate.removeTask(this.props.task.id);
   }
 
   toggle(task) {
-    appstate.toggleTask(this.props.id);
+    appstate.toggleTask(this.props.task.id);
   }
 
   render() {

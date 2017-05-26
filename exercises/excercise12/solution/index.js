@@ -73,15 +73,15 @@ class Task extends Component {
     this.save = this.save.bind(this);
   }
   save(newValue) {
-    appstate.updateTask(this.props.id, {value: newValue});
+    appstate.updateTask(this.props.task.id, newValue);
   }
 
   remove() {
-    appstate.removeTask(this.props.id);
+    appstate.removeTask(this.props.task.id);
   }
 
   toggle(task) {
-    appstate.toggleTask(this.props.id);
+    appstate.toggleTask(this.props.task.id);
   }
 
   render() {
