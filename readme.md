@@ -18,6 +18,7 @@
 
 * the starting point of the exercises is at `cd ./exercises/base/`
 * Look at the `readme.md` there
+* protip: checkout [nodemon](https://nodemon.io/), it watches for changes in your server code and restarts it automatically 
 
 ## Result
 ![Giffu](https://raw.githubusercontent.com/FastDevCo/react-intro/master/todo.gif)
